@@ -14,13 +14,18 @@ Executable constellation
   hs-source-dirs: src
   main-is: Main.hs
 
-  Build-depends:
+  build-depends:
     base                      >= 4     && < 5,
     bytestring                >= 0.9.1 && < 0.11,
+    transformers              >= 0.3.0 && < 0.4,
     MonadCatchIO-transformers >= 0.2.1 && < 0.4,
     mtl                       >= 2     && < 3,
     snap-core                 >= 0.9   && < 0.11,
-    snap-server               >= 0.9   && < 0.11
+    snap-server               >= 0.9   && < 0.11,
+    HTTP,
+    http-conduit,
+    unordered-containers,
+    aeson
   other-modules:
     Constellation.Models.Github
 
