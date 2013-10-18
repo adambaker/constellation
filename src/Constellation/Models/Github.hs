@@ -1,8 +1,13 @@
 module Constellation.Models.Github (
-  Repository,
+  Repository(Repository),
   RepoOwner,
-  User,
-  Organization,
+  User(User),
+  Organization(Organization),
+  name,
+  repos,
+  stars,
+  repoName,
+  users,
 ) where
 
 import Prelude
