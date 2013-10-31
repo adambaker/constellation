@@ -22,12 +22,35 @@ Executable constellation
     mtl                       >= 2     && < 3,
     snap-core                 >= 0.9   && < 0.11,
     snap-server               >= 0.9   && < 0.11,
-    HTTP,
-    http-conduit,
     unordered-containers,
     aeson
   other-modules:
     Constellation.Models.Github
+    Constellation.Github
+
+  if impl(ghc >= 6.12.0)
+    ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
+                 -fno-warn-unused-do-bind
+  else
+    ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
+
+Executable stargaze
+  hs-source-dirs: src
+  main-is: Stargaze.hs
+
+  build-depends:
+    base                      >= 4     && < 5,
+    bytestring                >= 0.9.1 && < 0.11,
+    transformers              >= 0.3.0 && < 0.4,
+    MonadCatchIO-transformers >= 0.2.1 && < 0.4,
+    mtl                       >= 2     && < 3,
+    time                      >= 1.4.0 && < 2,
+    persistent-postgresql     >= 1.2.1 && < 2,
+    HTTP,
+    http-conduit
+  other-modules:
+    Constellation.Models.Github
+    Constellation.Github
 
   if impl(ghc >= 6.12.0)
     ghc-options: -threaded -Wall -fwarn-tabs -funbox-strict-fields -O2
